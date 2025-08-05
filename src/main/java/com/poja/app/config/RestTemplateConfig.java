@@ -30,8 +30,7 @@ public class RestTemplateConfig {
         };
 
     return builder
-        .rootUri(
-            "${vola.base-url:fake}")
+        .rootUri("${vola.base-url:fake}")
         .setConnectTimeout(Duration.ofMillis(connectTimeoutMs))
         .setReadTimeout(Duration.ofMillis(readTimeoutMs))
         .additionalInterceptors(authInterceptor)
