@@ -1,19 +1,21 @@
 package com.poja.app.model;
 
 import jakarta.persistence.*;
+import java.time.Instant;
 import lombok.*;
 
-import java.time.Instant;
-
 @Entity
-@Table(name="donation")
+@Table(name = "donation")
 @Data
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class Donation {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @ManyToOne private Donor donor;
-    @OneToOne private Payment payment;
-    private String note;
-    private Instant createdAt = Instant.now();
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  @ManyToOne private Donor donor;
+  @OneToOne private Payment payment;
+  private String note;
+  private Instant createdAt = Instant.now();
 }
