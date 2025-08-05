@@ -1,0 +1,11 @@
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tsinjo_prod
+    username: prod
+    password: prod
+  flyway:
+    locations: classpath:db/migration/common,classpath:db/migration/prod
+vola:
+  base-url: https://42cwka3n4ifcp7ufheyrpmph240iuaxo.lambda-url.eu-west-3.on.aws/v3/api-docs
+  api-key: ${VOLA_API_KEY:}

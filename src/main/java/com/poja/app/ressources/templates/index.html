@@ -1,0 +1,33 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head><title>Tsinjo</title></head>
+<body>
+<h1>Tsinjo</h1>
+
+<section>
+    <form action="/donate" method="post">
+        <input name="email" placeholder="Email" required/>
+        <input name="method" placeholder="Moyen de paiement"/>
+        <input name="reference" placeholder="Réference de paiment"/>
+        <button type="submit">Donner!</button>
+    </form>
+</section>
+
+<hr/>
+
+<section>
+    <h3>Historique</h3>
+    <ul>
+        <th:block th:each="item : ${entries}">
+            <li>
+                <span th:text="${item.type} + ' - '"></span>
+                <span th:text="${item.person}"></span> |
+                <span th:text="${item.amount}"></span> |
+                <span th:text="${item.paymentState}"></span> |
+                <span th:text="${item.createdAt}"></span>
+            </li>
+        </th:block>
+    </ul>
+</section>
+</body>
+</html>
