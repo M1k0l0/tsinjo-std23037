@@ -14,10 +14,10 @@ public class RestTemplateConfig {
   @Value("${vola.api-key:fake}")
   private String volaApiKey;
 
-  @Value("${vola.connect-timeout-ms}")
+  @Value("${vola.connect-timeout-ms:fake}")
   private int connectTimeoutMs;
 
-  @Value("${vola.read-timeout-ms}")
+  @Value("${vola.read-timeout-ms:fake}")
   private int readTimeoutMs;
 
   @Bean
@@ -31,7 +31,7 @@ public class RestTemplateConfig {
 
     return builder
         .rootUri(
-            "${vola.base-url}") // workaround: we will still use absolute URIs in code if preferred
+            "${vola.base-url:fake}")
         .setConnectTimeout(Duration.ofMillis(connectTimeoutMs))
         .setReadTimeout(Duration.ofMillis(readTimeoutMs))
         .additionalInterceptors(authInterceptor)
